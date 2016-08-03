@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html >
+    <head>
+        <!-- Set the base href -->
+        <script>document.write('<base href="' + document.location + '" />');</script>
+        <title>Employee Tracker App</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel='stylesheet prefetch' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+        <link rel="stylesheet" href="content/css/sb-admin-2.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.4/nv.d3.min.css"/>
+        <link rel="stylesheet" href="content/css/animate.css" />
+        <link rel="stylesheet" href="content/css/loading-bars.css" />
+
+        <!-- 1. Load libraries -->
+        <!-- Polyfill(s) for older browsers -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.0/es6-shim.min.js"></script>
+
+        <script src="//npmcdn.com/zone.js@0.6.12?main=browser"></script>
+        <script src="//npmcdn.com/reflect-metadata@0.1.3"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.27/system.js"></script>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.4/nv.d3.min.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.4/nv.d3.min.js"></script>
+
+
+        <!-- 2. Configure SystemJS -->
+        <script src="systemjs.config.js"></script>
+        <script>
+            System.import('app').catch(function(err) { console.error(err); });
+        </script>
+    </head>
+
+    <!-- 3. Display the application -->
+    <body>
+        <employee-tracker-app>Loading...</employee-tracker-app>
+    </body>
+</html>
