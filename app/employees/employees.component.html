@@ -1,0 +1,63 @@
+<div class="template animated slideInRight">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h2>{{title}} <small>Sort Your Data</small></h2>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+                <li class="active"><i class="fa fa-table"></i> {{title}}</li>
+            </ol>
+            <div class="alert alert-info alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                We're using <a class="alert-link" href="https://github.com/mariuszfoltak/angular2-datatable" target="_blank">angular2-datatable</a> for the sort and paging function on the grid. Read the documentation for more customization options or feel free to use something else!
+            </div>
+        </div>
+    </div><!-- /.row -->
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="10">
+                <thead>
+                <tr>
+                    <th style="width: 20%">
+                        <mfDefaultSorter by="name">Name</mfDefaultSorter>
+                    </th>
+                    <th style="width: 15%">
+                        <mfDefaultSorter by="office">Office</mfDefaultSorter>
+                    </th>
+                    <th style="width: 25%">
+                        <mfDefaultSorter by="position">Position</mfDefaultSorter>
+                    </th>
+                    <th style="width: 7%">
+                        <mfDefaultSorter by="sex">Sex</mfDefaultSorter>
+                    </th>
+                    <th style="width: 8%">
+                        <mfDefaultSorter by="age">Age</mfDefaultSorter>
+                    </th>
+                    <th style="width: 12%">
+                        <mfDefaultSorter by="startDate">Start Date</mfDefaultSorter>
+                    </th>
+                    <th style="width: 13%">
+                        <mfDefaultSorter by="salary">Salary</mfDefaultSorter>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let item of mf.data">
+                    <td>{{item.firstName}} {{item.lastName}}</td>
+                    <td>{{item.office}}</td>
+                    <td>{{item.position}}</td>
+                    <td>{{item.sex}}</td>
+                    <td>{{item.age}}</td>
+                    <td>{{item.startDate | date: 'yyyy-MM-dd'}}</td>
+                    <td>{{item.salary | currency:'USD':true:'4.2-2'}}</td>
+                </tr>
+                </tbody>
+                <tfoot>
+                    <td colspan="5">
+                        <mfBootstrapPaginator [rowsOnPageSet]="[5,10,15]"></mfBootstrapPaginator>
+                    </td>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
