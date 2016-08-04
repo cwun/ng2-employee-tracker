@@ -7,15 +7,13 @@
     var map = {
         'app':                        'app', // 'dist',
         '@angular':                   'node_modules/@angular',
-        'rxjs':                       'node_modules/rxjs',
         'angular2-in-memory-web-api': 'node_modules/angular2-in-memory-web-api',
         'angular2-datatable':         'node_modules/angular2-datatable',
-        'lodash':                     'node_modules/lodash/lodash.js'
+        'lodash':                     'node_modules/lodash/lodash.min.js'
     };
     // packages tells the System loader how to load when no filename and/or no extension
     var packages = {
         'app':                        { main: 'main.js',  defaultExtension: 'js' },
-        'rxjs':                       { defaultExtension: 'js' },
         'angular2-in-memory-web-api': { main: 'index.js', defaultExtension: 'js' },
         'angular2-datatable':         { defaultExtension: 'js' }
     };
@@ -31,10 +29,12 @@
         'router-deprecated',
         'upgrade'
     ];
+
     // Individual files (~300 requests):
     function packIndex(pkgName) {
         packages['@angular/'+pkgName] = { main: 'index.js', defaultExtension: 'js' };
     }
+
     // Bundled (~40 requests):
     function packUmd(pkgName) {
         packages['@angular/'+pkgName] = { main: '/bundles/' + pkgName + '.umd.js', defaultExtension: 'js' };
