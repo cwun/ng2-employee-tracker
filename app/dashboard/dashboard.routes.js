@@ -1,6 +1,6 @@
 "use strict";
-var dashboard_resolver_1 = require('./dashboard.resolver');
 var dashboard_component_1 = require('./dashboard.component');
+var dashboard_resolver_1 = require('./dashboard.resolver');
 exports.DashboardRoutes = [
     { path: '',
         redirectTo: '/dashboard',

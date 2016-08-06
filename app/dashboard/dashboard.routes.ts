@@ -1,6 +1,7 @@
 import { RouterConfig }         from '@angular/router';
-import { DashboardResolver }    from './dashboard.resolver';
+
 import { DashboardComponent }   from './dashboard.component';
+import { DashboardResolver }    from './dashboard.resolver';
 
 export const DashboardRoutes: RouterConfig = [
     { path: ''

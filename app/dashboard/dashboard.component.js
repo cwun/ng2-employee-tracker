@@ -8,13 +8,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
+var core_1 = require('@angular/core');
 var ng2_nvd3_1 = require('./ng2-nvd3');
 var DashboardComponent = (function () {
     function DashboardComponent(route) {
         this.route = route;
         this.title = 'Dashboard';
+        this.pieChartData = [];
     }
     DashboardComponent.prototype.ngOnInit = function () {
         var data = this.route.snapshot.data['dashboard'];

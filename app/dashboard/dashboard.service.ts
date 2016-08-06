@@ -1,13 +1,14 @@
-import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { Dashboard, ChartData } from './dashboard.model';
-
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
+
+import { CONFIG } from '../shared/config';
+import { Dashboard } from './dashboard.model';
 
 @Injectable()
 export class DashboardService {
 
-    private url = 'http://localhost/employee-tracker-apis/api/dashboards';  // URL to web API
+    private url = CONFIG.urls.resourceServer + CONFIG.urls.dashboard;  // URL to web API
 
     constructor(private http: Http) { }
 
@@ -16,10 +17,12 @@ export class DashboardService {
             .map(this.extractData)
             .catch(this.handleError);
     }
+
     private extractData(res: Response) {
         let data = res.json();
         return data || { };
     }
+
     private handleError (error: any) {
         // In a real world app, we might use a remote logging infrastructure
         // We'd also dig deeper into the error to get a better message

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { nvD3 }              from './ng2-nvd3';
 
 import { ChartData } from './dashboard.model';
@@ -13,15 +13,14 @@ declare let d3: any;
 })
 
 export class DashboardComponent implements OnInit {
-    errorMessage: string;
     title = 'Dashboard';
-    positions;
-    offices;
-    employees;
-    lineChartOptions;
-    lineChartData;
-    pieChartOptions;
-    pieChartData;
+    positions: number;
+    offices: number;
+    employees: number;
+    lineChartOptions: {};
+    lineChartData: {};
+    pieChartOptions: {};
+    pieChartData: ChartData[] = [];
 
     constructor (private route: ActivatedRoute) {}
 
@@ -33,7 +32,7 @@ export class DashboardComponent implements OnInit {
         this.setupCharts(data);
     }
 
-    setupCharts(data) {
+    private setupCharts(data) {
         this.lineChartOptions = {
             chart: {
                 type: 'historicalBarChart',

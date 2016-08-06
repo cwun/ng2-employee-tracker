@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 import { Dashboard } from './dashboard.model';

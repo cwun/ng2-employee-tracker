@@ -8,13 +8,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
+var core_1 = require('@angular/core');
 var Rx_1 = require('rxjs/Rx');
+var config_1 = require('../shared/config');
 var DashboardService = (function () {
     function DashboardService(http) {
         this.http = http;
-        this.url = 'http://localhost/employee-tracker-apis/api/dashboards'; // URL to web API
+        this.url = config_1.CONFIG.urls.resourceServer + config_1.CONFIG.urls.dashboard; // URL to web API
     }
     DashboardService.prototype.getSetting = function () {
         return this.http.get(this.url)
