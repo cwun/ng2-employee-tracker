@@ -10,29 +10,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require("@angular/common");
-var http_1 = require("@angular/http");
 var datatable_1 = require('angular2-datatable/datatable');
+var employee_service_1 = require('./employee.service');
 var EmployeesComponent = (function () {
-    function EmployeesComponent(http) {
-        var _this = this;
-        this.http = http;
+    function EmployeesComponent(employeeService) {
+        this.employeeService = employeeService;
         this.title = 'Employees';
-        http.get("api/employees.json")
-            .subscribe(function (data) {
-            setTimeout(function () {
-                _this.data = data.json();
-            }, 1000);
-        });
     }
+    EmployeesComponent.prototype.ngOnInit = function () {
+        this.getList();
+    };
+    EmployeesComponent.prototype.getList = function () {
+        var _this = this;
+        this.employeeService.getList()
+            .subscribe(function (data) { return _this.employees = data; }, function (error) { return _this.errorMessage = error; });
+    };
     EmployeesComponent = __decorate([
         core_1.Component({
-            selector: 'my-employees',
+            selector: 'et-employees',
             templateUrl: 'app/employees/employees.component.html',
-            providers: [http_1.HTTP_PROVIDERS],
             directives: [datatable_1.DataTableDirectives],
             pipes: [common_1.DatePipe]
         }), 
-        __metadata('design:paramtypes', [http_1.Http])
+        __metadata('design:paramtypes', [employee_service_1.EmployeeService])
     ], EmployeesComponent);
     return EmployeesComponent;
 }());

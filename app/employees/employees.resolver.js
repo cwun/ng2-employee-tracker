@@ -9,20 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
-var AppComponent = (function () {
-    function AppComponent() {
-        this.heading = 'Angular 2 Employee Tracker App';
+var employee_service_1 = require('./employee.service');
+var EmployeesResolver = (function () {
+    function EmployeesResolver(employeeService) {
+        this.employeeService = employeeService;
     }
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'employee-tracker-app',
-            templateUrl: 'app/app.component.html',
-            directives: [router_1.ROUTER_DIRECTIVES]
-        }), 
-        __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    EmployeesResolver.prototype.resolve = function (route) {
+        return this.employeeService.getList();
+    };
+    EmployeesResolver = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [employee_service_1.EmployeeService])
+    ], EmployeesResolver);
+    return EmployeesResolver;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.EmployeesResolver = EmployeesResolver;
+//# sourceMappingURL=employees.resolver.js.map

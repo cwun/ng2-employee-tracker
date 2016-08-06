@@ -11,21 +11,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
 var Rx_1 = require('rxjs/Rx');
-var DashboardService = (function () {
-    function DashboardService(http) {
+var EmployeeService = (function () {
+    function EmployeeService(http) {
         this.http = http;
-        this.url = 'http://localhost/employee-tracker-apis/api/dashboards'; // URL to web API
+        this.url = 'http://localhost/employee-tracker-apis/api/employees'; // URL to web API
     }
-    DashboardService.prototype.getSetting = function () {
+    EmployeeService.prototype.getList = function () {
         return this.http.get(this.url)
             .map(this.extractData)
             .catch(this.handleError);
     };
-    DashboardService.prototype.extractData = function (res) {
+    EmployeeService.prototype.extractData = function (res) {
         var data = res.json();
         return data || {};
     };
-    DashboardService.prototype.handleError = function (error) {
+    EmployeeService.prototype.handleError = function (error) {
         // In a real world app, we might use a remote logging infrastructure
         // We'd also dig deeper into the error to get a better message
         var errMsg = (error.message) ? error.message :
@@ -33,11 +33,11 @@ var DashboardService = (function () {
         console.error(errMsg); // log to console instead
         return Rx_1.Observable.throw(errMsg);
     };
-    DashboardService = __decorate([
+    EmployeeService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http])
-    ], DashboardService);
-    return DashboardService;
+    ], EmployeeService);
+    return EmployeeService;
 }());
-exports.DashboardService = DashboardService;
-//# sourceMappingURL=dashboard.service.js.map
+exports.EmployeeService = EmployeeService;
+//# sourceMappingURL=employee.service.js.map

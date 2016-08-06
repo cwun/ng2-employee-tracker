@@ -9,19 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var ng2_nvd3_1 = require('./ng2-nvd3');
-var dashboard_model_1 = require('./dashboard.model');
-var dashboard_service_1 = require('./dashboard.service');
 var DashboardComponent = (function () {
-    function DashboardComponent(service) {
-        this.service = service;
+    function DashboardComponent(route) {
+        this.route = route;
         this.title = 'Dashboard';
     }
     DashboardComponent.prototype.ngOnInit = function () {
-        this.dashboard = new dashboard_model_1.Dashboard();
-        this.dashboard.totalPositions = 10;
-        this.dashboard.totalOffices = 11;
-        this.dashboard.totalEmployees = 12;
+        var data = this.route.snapshot.data['dashboard'];
+        this.positions = data.totalPositions;
+        this.offices = data.totalOffices;
+        this.employees = data.totalEmployees;
+        this.setupCharts(data);
+    };
+    DashboardComponent.prototype.setupCharts = function (data) {
         this.lineChartOptions = {
             chart: {
                 type: 'historicalBarChart',
@@ -46,40 +48,7 @@ var DashboardComponent = (function () {
             }
         };
         this.lineChartData = [{
-                values: [
-                    {
-                        "key": 2009,
-                        "value": 9
-                    },
-                    {
-                        "key": 2010,
-                        "value": 16
-                    },
-                    {
-                        "key": 2011,
-                        "value": 23
-                    },
-                    {
-                        "key": 2012,
-                        "value": 31
-                    },
-                    {
-                        "key": 2013,
-                        "value": 37
-                    },
-                    {
-                        "key": 2014,
-                        "value": 39
-                    },
-                    {
-                        "key": 2015,
-                        "value": 41
-                    },
-                    {
-                        "key": 2016,
-                        "value": 42
-                    }
-                ],
+                values: data.employeesPerYear,
                 color: '#7777ff',
                 area: true
             }];
@@ -106,47 +75,15 @@ var DashboardComponent = (function () {
                 }
             }
         };
-        this.pieChartData = [
-            {
-                "key": "Edinburgh",
-                "value": 7
-            },
-            {
-                "key": "London",
-                "value": 9
-            },
-            {
-                "key": "New York",
-                "value": 7
-            },
-            {
-                "key": "San Francisco",
-                "value": 11
-            },
-            {
-                "key": "Sidney",
-                "value": 2
-            },
-            {
-                "key": "Singapore",
-                "value": 2
-            },
-            {
-                "key": "Tokyo",
-                "value": 4
-            }
-        ];
-        /*this.service.getSetting()
-            .subscribe(data => this.dashboard = data );
-            */
+        this.pieChartData = data.employeesPerOffice;
     };
     DashboardComponent = __decorate([
         core_1.Component({
-            selector: 'my-dashboard',
+            selector: 'et-dashboard',
             templateUrl: 'app/dashboard/dashboard.component.html',
             directives: [ng2_nvd3_1.nvD3]
         }), 
-        __metadata('design:paramtypes', [dashboard_service_1.DashboardService])
+        __metadata('design:paramtypes', [router_1.ActivatedRoute])
     ], DashboardComponent);
     return DashboardComponent;
 }());

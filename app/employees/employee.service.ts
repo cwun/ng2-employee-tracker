@@ -1,20 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { Dashboard, ChartData } from './dashboard.model';
-
 import { Observable } from 'rxjs/Rx';
 
-@Injectable()
-export class DashboardService {
+import { Employee } from './employee.model';
 
-    private url = 'http://localhost/employee-tracker-apis/api/dashboards';  // URL to web API
+@Injectable()
+export class EmployeeService {
+
+    private url = 'http://localhost/employee-tracker-apis/api/employees';  // URL to web API
 
     constructor(private http: Http) { }
 
-    getSetting() : Observable<Dashboard> {
+    getList() : Observable<Employee[]> {
         return this.http.get(this.url)
-            .map(this.extractData)
-            .catch(this.handleError);
+                        .map(this.extractData)
+                        .catch(this.handleError);
     }
     private extractData(res: Response) {
         let data = res.json();
