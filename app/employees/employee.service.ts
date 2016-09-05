@@ -1,14 +1,14 @@
 import { Http, Response } from '@angular/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Rx';
+import { Injectable }     from '@angular/core';
+import { Observable }     from 'rxjs/Rx';
 
-import { CONFIG } from '../shared/config';
-import { Employee } from './employee.model';
+import { Employee }       from './employee.model';
 
 @Injectable()
 export class EmployeeService {
 
-    private url = CONFIG.urls.resourceServer + CONFIG.urls.employees;   // URL to web API
+    //private url = 'api/employees.json';
+    private url = 'http://localhost/employee-tracker-apis/api/employees';   // URL to web API
 
     constructor(private http: Http) { }
 

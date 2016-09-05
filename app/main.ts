@@ -1,12 +1,8 @@
-// main entry point
-import { bootstrap } from '@angular/platform-browser-dynamic';
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+// The browser platform with a compiler
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-import { AppComponent } from './app.component';
-import { appRouterProviders } from './app.routes';
+// The app module
+import { AppModule }              from './app.module';
 
-bootstrap(AppComponent, [
-    appRouterProviders
-    ,{provide: LocationStrategy, useClass: HashLocationStrategy}
-])
-.catch(err => console.error(err));
+// Compile and launch the module
+platformBrowserDynamic().bootstrapModule(AppModule);

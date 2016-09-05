@@ -1,18 +1,16 @@
 import { Http, Response } from '@angular/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Rx';
-
-import { CONFIG } from '../shared/config';
-import { Dashboard } from './dashboard.model';
+import { Injectable }     from '@angular/core';
+import { Observable }     from 'rxjs/Rx';
 
 @Injectable()
 export class DashboardService {
 
-    private url = CONFIG.urls.resourceServer + CONFIG.urls.dashboard;  // URL to web API
+    //private url = 'api/dashboard.json';
+    private url = 'http://localhost/employee-tracker-apis/api/dashboards';  // URL to web API
 
     constructor(private http: Http) { }
 
-    getSetting() : Observable<Dashboard> {
+    getSetting() : Observable<any> {
         return this.http.get(this.url)
             .map(this.extractData)
             .catch(this.handleError);

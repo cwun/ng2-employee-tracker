@@ -1,15 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { DatePipe } from "@angular/common";
-import { DataTableDirectives } from 'angular2-datatable/datatable';
+import { ActivatedRoute }      from '@angular/router';
+import { Component, OnInit }   from '@angular/core';
 
-import { Employee } from './employee.model';
-import { EmployeeService } from './employee.service';
+import { Employee }            from './employee.model';
 
 @Component({
-    selector: 'et-employees'
+    selector:     'et-employees'
     ,templateUrl: 'app/employees/employees.component.html'
-    ,directives: [DataTableDirectives],
-    pipes: [DatePipe]
 })
 
 export class EmployeesComponent implements OnInit {
@@ -17,17 +13,10 @@ export class EmployeesComponent implements OnInit {
     title = 'Employees';
     employees: Employee[];
 
-    constructor(private employeeService: EmployeeService) {}
+    constructor(private route: ActivatedRoute) {}
 
     ngOnInit() {
-        this.getList();
-    }
-
-    private getList() {
-        this.employeeService.getList()
-            .subscribe(
-                data => this.employees = data,
-                error =>  this.errorMessage = <any>error
-            );
+        /* Initialize this.* bindable members with data.* members */
+        this.employees = this.route.snapshot.data['employees'];
     }
 }

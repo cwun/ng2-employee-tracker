@@ -3,9 +3,11 @@
     <head>
         <!-- Set the base href -->
         <script>document.write('<base href="' + document.location + '" />');</script>
-        <title>Angular 2 Employee Tracker App</title>
+        <title>Angular 2 Employee Tracker</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- 1. Load css -->
         <link rel='stylesheet prefetch' href='node_modules/bootstrap/dist/css/bootstrap.min.css'>
         <link rel="stylesheet" href="content/css/sb-admin-2.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" />
@@ -13,22 +15,23 @@
         <link rel="stylesheet" href="content/css/animate.css" />
         <link rel="stylesheet" href="content/css/loading-bars.css" />
 
-        <!-- 1. Load libraries -->
-        <!-- Polyfill(s) for older browsers -->
+        <!-- 2. Load libraries -->
+        <!--    2.1 Polyfill(s) for older browsers -->
         <script src="//cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.0/es6-shim.min.js"></script>
-        <!-- Fix the Date and Currency pipes in mobile safari -->
-        <script src="//cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.en"></script>
-
         <script src="node_modules/zone.js/dist/zone.min.js"></script>
         <script src="node_modules/reflect-metadata/Reflect.js"></script>
         <script src="node_modules/systemjs/dist/system.src.js"></script>
         <script src="node_modules/rxjs/bundles/Rx.min.js"></script>
+        <!--        Fix the Date and Currency pipes in mobile safari -->
+        <script src="//cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.en"></script>
+        
+        <!--    2.2 Vendor js libraries -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="node_modules/d3/d3.min.js"></script>
         <script src="node_modules/nvd3/build/nv.d3.min.js"></script>
 
-        <!-- 2. Configure SystemJS -->
+        <!-- 3. Configure SystemJS -->
         <script src="systemjs.config.js"></script>
         <script>
             System.import('app').catch(function(err) { console.error(err); });
@@ -36,10 +39,10 @@
 
     </head>
 
-    <!-- 3. Display the application -->
     <body>
+        <!-- 4. Display the application -->
         <employee-tracker-app>
-            <!-- Simple splash screen-->
+            <!-- Show simple splash screen-->
             <div class="splash">
                 <div class="color-line"></div>
                 <div class="splash-title">

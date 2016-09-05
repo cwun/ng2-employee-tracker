@@ -1,15 +1,11 @@
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute }    from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { nvD3 }              from './ng2-nvd3';
-
-import { ChartData } from './dashboard.model';
 
 declare let d3: any;
 
 @Component({
-    selector: 'et-dashboard',
+    selector:    'et-dashboard',
     templateUrl: 'app/dashboard/dashboard.component.html'
-    ,directives: [ nvD3 ]
 })
 
 export class DashboardComponent implements OnInit {
@@ -20,11 +16,12 @@ export class DashboardComponent implements OnInit {
     lineChartOptions: {};
     lineChartData: {};
     pieChartOptions: {};
-    pieChartData: ChartData[] = [];
+    pieChartData: {};
 
     constructor (private route: ActivatedRoute) {}
 
     ngOnInit() {
+        /* Initialize this.* bindable members with data.* members */
         let data = this.route.snapshot.data['dashboard'];
         this.positions = data.totalPositions;
         this.offices = data.totalOffices;
@@ -33,6 +30,7 @@ export class DashboardComponent implements OnInit {
     }
 
     private setupCharts(data) {
+        // Configure options for the bar chart
         this.lineChartOptions = {
             chart: {
                 type: 'historicalBarChart',
@@ -57,12 +55,14 @@ export class DashboardComponent implements OnInit {
             }
         };
 
+        // Bind data to the bar chart
         this.lineChartData = [{
             values: data.employeesPerYear,
             color: '#7777ff',
             area: true
         }];
 
+        // Configure options for the pie chart
         this.pieChartOptions = {
             chart: {
                 type: 'pieChart',
@@ -87,6 +87,7 @@ export class DashboardComponent implements OnInit {
             }
         };
 
+        // Bind data to the pie chart
         this.pieChartData = data.employeesPerOffice;
     }
 }
