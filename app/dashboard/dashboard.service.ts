@@ -5,8 +5,8 @@ import { Observable }     from 'rxjs/Rx';
 @Injectable()
 export class DashboardService {
 
-    //private url = 'api/dashboard.json';
-    private url = 'http://localhost/employee-tracker-apis/api/dashboards';  // URL to web API
+    private url = 'api/dashboard.json';
+    //private url = 'http://localhost/employee-tracker-apis/api/dashboards';  // URL to web API
 
     constructor(private http: Http) { }
 

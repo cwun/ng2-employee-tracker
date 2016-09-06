@@ -7,8 +7,8 @@ import { Employee }       from './employee.model';
 @Injectable()
 export class EmployeeService {
 
-    //private url = 'api/employees.json';
-    private url = 'http://localhost/employee-tracker-apis/api/employees';   // URL to web API
+    private url = 'api/employees.json';
+    //private url = 'http://localhost/employee-tracker-apis/api/employees';   // URL to web API
 
     constructor(private http: Http) { }
 
