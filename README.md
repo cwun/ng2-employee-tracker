@@ -1,4 +1,4 @@
-# Tutorials on Rewriting an Employee Tracker with AngularJS 2 and TypeScript
+# Tutorials on rewriting an Employee Tracker with Angular 2 and TypeScript
 
 This simple Employee Tracker provides users the ability to track important activities ranging from human resources to operations.
 
