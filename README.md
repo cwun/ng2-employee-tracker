@@ -1,8 +1,6 @@
 # Tutorials on rewriting an Employee Tracker with Angular 2 and TypeScript
 
-This simple Employee Tracker provides users the ability to track important activities ranging from human resources to operations.
-
-#### [Demo site](http://ng2-employee-tracker.azurewebsites.net)
+ThisÂ simple Employee Tracker providesÂ users the ability to trackÂ important activities rangingÂ from human resourcesÂ to operations.
 
 <b>*** Dashboard ***</b>
 ![Picture](https://github.com/cwun/ng2-employee-tracker/blob/master/screen-dashboard.png)
